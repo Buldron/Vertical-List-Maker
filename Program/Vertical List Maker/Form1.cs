@@ -68,13 +68,21 @@ namespace Vertical_List_Maker
 			// Replaces spaces with new lines.
 			foreach (char c in input)
 			{
-				if (c.ToString().Contains(" "))
+				// Ignore commas.
+				if (!c.ToString().Contains(",") && !c.ToString().Contains("'") && !c.ToString().Contains(".") && !c.ToString().Contains("-") && !c.ToString().Contains("\""))
 				{
-					list.AppendLine();
-				}
-				else
-				{
-					list.Append(c);
+					if (!c.ToString().Contains("(") && !c.ToString().Contains(")") && !c.ToString().Contains(";") && !c.ToString().Contains("�"))
+					{
+						// Newline on spaces, print everything else.
+						if (c.ToString().Contains(" ") || c.ToString().Contains(" "))
+						{
+							list.AppendLine();
+						}
+						else
+						{
+							list.Append(c);
+						}
+					}
 				}
 			}
 

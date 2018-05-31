@@ -7,3 +7,4 @@ D:\Clinton\Desktop\Program\Vertical List Maker\Vertical List Maker\obj\Debug\Ver
 D:\Clinton\Desktop\Program\Vertical List Maker\Vertical List Maker\obj\Debug\Vertical List Maker.csproj.CoreCompileInputs.cache
 D:\Clinton\Desktop\Program\Vertical List Maker\Vertical List Maker\obj\Debug\Vertical List Maker.exe
 D:\Clinton\Desktop\Program\Vertical List Maker\Vertical List Maker\obj\Debug\Vertical List Maker.pdb
+D:\Clinton\Desktop\Program\Vertical List Maker\Vertical List Maker\obj\Debug\Vertical List Maker.csprojAssemblyReference.cache
