@@ -18,42 +18,43 @@ namespace Vertical_List_Maker
 			ComponentResourceManager resources = new ComponentResourceManager(typeof(Form));
 			Icon = new Icon("Resources/icon.ico");
 
-
 			InitializeComponent();
 		}
+		
+		string inputPath;
+		string outputPath;
+				
+		private void inputFIle_Click(object sender, EventArgs e)
+		{			
+			OpenFileDialog fileDialog = new OpenFileDialog();
+			fileDialog.Filter = "TXT|*.txt";
+			DialogResult result = fileDialog.ShowDialog();
 
-		/// <summary>
-		/// Opens a dialog menu to select a text file, then calls list creation method.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void GetFile_Click(object sender, EventArgs e)
+			// Test result.
+			if (result == DialogResult.OK)
+			{
+				// Set file path.
+				inputPath = fileDialog.FileName;
+				textBox1.Text = inputPath;
+			}
+		}
+
+		private void outputFile_Click(object sender, EventArgs e)
 		{
 			// Show folder dialog.
 			OpenFileDialog fileDialog = new OpenFileDialog();
-			DialogResult result = fileDialog.ShowDialog(); 
-
+			fileDialog.Filter = "TXT|*.txt";
+			DialogResult result = fileDialog.ShowDialog();
+			
 			// Test result.
-			if (result == DialogResult.OK) 
+			if (result == DialogResult.OK)
 			{
-				// Construct file path and contents.
-				string file = fileDialog.FileName;
-				StringBuilder sb = new StringBuilder();
-
-				// Read and add file contents to StringBuilder.
-				using (StreamReader sr = new StreamReader(file))
-				{
-					String line;
-					while ((line = sr.ReadLine()) != null)
-					{
-						sb.AppendLine(line);
-					}
-
-					// Build and print list.
-					richTextBox1.Text = BuildList(sb);
-				}
+				// Construct file path and contents.			
+				outputPath = fileDialog.FileName;
+				textBox2.Text = outputPath;
 			}
 		}
+
 
 		/// <summary>
 		/// Takes a string of words as an input, outputs a vertical list.
@@ -74,7 +75,7 @@ namespace Vertical_List_Maker
 					if (!c.ToString().Contains("(") && !c.ToString().Contains(")") && !c.ToString().Contains(";") && !c.ToString().Contains("�"))
 					{
 						// Newline on spaces, print everything else.
-						if (c.ToString().Contains(" ") || c.ToString().Contains(" "))
+						if (c.ToString().Contains(" ") || c.ToString().Contains(" ") || c.ToString().Contains("	"))
 						{
 							list.AppendLine();
 						}
@@ -88,6 +89,27 @@ namespace Vertical_List_Maker
 
 			// Return list.
 			return list.ToString();
+		}
+
+		private void GenerateList_Click(object sender, EventArgs e)
+		{
+			StringBuilder sb = new StringBuilder();
+
+			// Read and add file contents to StringBuilder.
+			using (StreamReader sr = new StreamReader(inputPath))
+			{
+				String line;
+				while ((line = sr.ReadLine()) != null)
+				{
+					sb.AppendLine(line);
+				}
+
+				using (StreamWriter writer = new StreamWriter(outputPath))
+				{
+					string list = BuildList(sb);
+					writer.Write(list);
+				}				
+			}
 		}
 	}
 }
