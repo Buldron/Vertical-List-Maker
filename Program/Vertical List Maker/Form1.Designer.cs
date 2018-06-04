@@ -28,8 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.GetInput = new System.Windows.Forms.ToolStripMenuItem();
+			this.loadWhitelist = new System.Windows.Forms.ToolStripMenuItem();
+			this.loadNewLineTrigger = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.textBox2 = new System.Windows.Forms.TextBox();
@@ -38,6 +41,7 @@
 			this.outputFile = new System.Windows.Forms.Button();
 			this.GenerateList = new System.Windows.Forms.Button();
 			this.inputFIle = new System.Windows.Forms.Button();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -55,10 +59,27 @@
 			// 
 			// GetInput
 			// 
+			this.GetInput.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadWhitelist,
+            this.loadNewLineTrigger});
 			this.GetInput.ForeColor = System.Drawing.SystemColors.ControlLight;
 			this.GetInput.Name = "GetInput";
 			this.GetInput.Size = new System.Drawing.Size(37, 20);
 			this.GetInput.Text = "File";
+			// 
+			// loadWhitelist
+			// 
+			this.loadWhitelist.Name = "loadWhitelist";
+			this.loadWhitelist.Size = new System.Drawing.Size(186, 22);
+			this.loadWhitelist.Text = "Load Whitelist";
+			this.loadWhitelist.Click += new System.EventHandler(this.LoadWhitelist_Click);
+			// 
+			// loadNewLineTrigger
+			// 
+			this.loadNewLineTrigger.Name = "loadNewLineTrigger";
+			this.loadNewLineTrigger.Size = new System.Drawing.Size(186, 22);
+			this.loadNewLineTrigger.Text = "Load Newline Trigger";
+			this.loadNewLineTrigger.Click += new System.EventHandler(this.LoadNewLineTrigger_Click);
 			// 
 			// aboutToolStripMenuItem
 			// 
@@ -112,7 +133,7 @@
 			this.outputFile.TabIndex = 8;
 			this.outputFile.Text = "Select File";
 			this.outputFile.UseVisualStyleBackColor = true;
-			this.outputFile.Click += new System.EventHandler(this.outputFile_Click);
+			this.outputFile.Click += new System.EventHandler(this.OutputFile_Click);
 			// 
 			// GenerateList
 			// 
@@ -134,7 +155,7 @@
 			this.inputFIle.TabIndex = 10;
 			this.inputFIle.Text = "Select File";
 			this.inputFIle.UseVisualStyleBackColor = true;
-			this.inputFIle.Click += new System.EventHandler(this.inputFIle_Click);
+			this.inputFIle.Click += new System.EventHandler(this.InputFIle_Click);
 			// 
 			// Form1
 			// 
@@ -172,6 +193,9 @@
 		private System.Windows.Forms.Button outputFile;
 		private System.Windows.Forms.Button GenerateList;
 		private System.Windows.Forms.Button inputFIle;
+		private System.Windows.Forms.ToolStripMenuItem loadWhitelist;
+		private System.Windows.Forms.ToolStripMenuItem loadNewLineTrigger;
+		private System.Windows.Forms.ToolTip toolTip1;
 	}
 }
 

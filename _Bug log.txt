@@ -1,2 +1,3 @@
 - unwanted blank lines
-- unwanted symbols
+- cannot load default whitelist path - check functions passing "v.Other"
+- don't let user generate without selecting valid input and output files.

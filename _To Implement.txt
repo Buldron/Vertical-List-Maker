@@ -1,1 +1,8 @@
-- white list feature
+- default whitelist loading
+- newline trigger loading
+- minimum and maximum form sizes
+- tooltips
+- popup message when generate file.
+- error messages
+- error handling
+- save program settings into .txt doc and load when start
