@@ -6,3 +6,4 @@
 - error messages
 - error handling
 - save program settings into .txt doc and load when start
+- ability to remove duplicate words

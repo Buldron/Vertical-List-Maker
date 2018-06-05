@@ -1,5 +1,6 @@
 # Vertical-List-Maker
-Program that takes a given horizontal list, outputs it in vertical format.
+Program that takes a given text file, then outputs it in a vertical format.
+Includes a Whitelisting feature and the ability to have specific characters trigger a newline.
 
 Screenshots - 05/06/2018
 
