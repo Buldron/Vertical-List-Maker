@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -19,37 +20,78 @@ namespace Vertical_List_Maker
 		}
 
 
-		public static void BuildList(string Input, string outputPath, string whitelist, string newlineTrigger)
+		public static void BuildList(string Input, string outputPath, string whitelist, string newlineTrigger, bool RemoveDuplicates)
 		{
-			StringBuilder list = new StringBuilder();
+			StringBuilder word = new StringBuilder();
+			List<string> list = new List<string>();
 			char[] input = Input.ToCharArray();
+
+			
 
 			// Replaces spaces with new lines.
 			foreach (char c in input)
 			{				
+				// Check if whitelisted.
 				if (CheckCharWhitelist(c, whitelist))
-				{					
+				{			
+					// Check if newline.
 					if (newlineTrigger.Contains(c.ToString()))
 					{
-						list.AppendLine();
+						if (word.Length > 0)
+						{
+							list.Add(word.ToString());
+							word = new StringBuilder();
+						}						
 					}
 					else
 					{
-						list.Append(c);
+						word.Append(c);
 					}
 				}
 			}
-
+			
+			if(RemoveDuplicates)
+			{
+				list = RemoveDuplicateStrings(list);
+			}
+			
+			
 			if(outputPath != null && list != null)
 			{
 				// Write modified list to outputh file.
 				using (StreamWriter writer = new StreamWriter(outputPath))
 				{
-					writer.Write(list.ToString());
+					foreach(string line in list)
+					{					
+						writer.WriteLine(line);
+					}					
 				}
 			}			
 		}
 
+		private static List<string> RemoveDuplicateStrings(List<string> input)
+		{
+			List<string> list = new List<string>();
+			
+			for(int i = 0; i < input.Count - 1; i++)
+			{
+				bool duplicate = false;
+				for (int j = i + 1; j < input.Count; j++)
+				{
+					if(input[i].ToLower() == input[j].ToLower())
+					{
+						duplicate = true;
+					}
+				}
+
+				if(duplicate == false)
+				{
+					list.Add(input[i]);
+				}
+			}
+
+			return list;
+		}
 
 		private static bool CheckCharWhitelist(char c, string whitelist)
 		{

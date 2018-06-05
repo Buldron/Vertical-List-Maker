@@ -1,0 +1,9 @@
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\bin\Release\Vertical List Maker.exe.config
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\bin\Release\Vertical List Maker.exe
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\bin\Release\Vertical List Maker.pdb
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical_List_Maker.Form1.resources
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical_List_Maker.Properties.Resources.resources
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.csproj.GenerateResource.cache
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.csproj.CoreCompileInputs.cache
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.exe
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.pdb

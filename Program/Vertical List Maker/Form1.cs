@@ -53,7 +53,7 @@ namespace Vertical_List_Maker
 			GenerateList.Enabled = Program.CanBuildList(inputPath, outputPath, whitelistPath, newlineTriggerPath);
 		}
 
-		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			MessageBox.Show(this, "Developed by Clinton Hodge / Buldron.", "About.");
 		}
@@ -72,7 +72,8 @@ namespace Vertical_List_Maker
 		{
 			string[] read = Program.ReadFile(inputPath, false);
 			string list = read[1];
-			Program.BuildList(list, outputPath, whitelist, newlineTrigger);
+		
+			Program.BuildList(list, outputPath, whitelist, newlineTrigger, RemoveDuplicates.Checked);
 			MessageBox.Show(this, "Done.", "List Built.");
 		}
 

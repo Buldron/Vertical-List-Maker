@@ -44,8 +44,10 @@ namespace Vertical_List_Maker
 			this.GenerateList = new System.Windows.Forms.Button();
 			this.inputFIle = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.RemoveDuplicates = new System.Windows.Forms.CheckBox();
+			this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
 			this.menuStrip1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -91,7 +93,7 @@ namespace Vertical_List_Maker
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
 			this.aboutToolStripMenuItem.Text = "About";
-			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
 			// 
 			// textBox1
 			// 
@@ -161,16 +163,21 @@ namespace Vertical_List_Maker
 			this.inputFIle.UseVisualStyleBackColor = true;
 			this.inputFIle.Click += new System.EventHandler(this.InputFIle_Click);
 			// 
-			// checkBox1
+			// RemoveDuplicates
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.checkBox1.Location = new System.Drawing.Point(230, 138);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(119, 17);
-			this.checkBox1.TabIndex = 11;
-			this.checkBox1.Text = "Remove Duplicates";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.RemoveDuplicates.AutoSize = true;
+			this.RemoveDuplicates.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.RemoveDuplicates.Location = new System.Drawing.Point(230, 138);
+			this.RemoveDuplicates.Name = "RemoveDuplicates";
+			this.RemoveDuplicates.Size = new System.Drawing.Size(119, 17);
+			this.RemoveDuplicates.TabIndex = 11;
+			this.RemoveDuplicates.Text = "Remove Duplicates";
+			this.RemoveDuplicates.UseVisualStyleBackColor = true;
+			// 
+			// fileSystemWatcher1
+			// 
+			this.fileSystemWatcher1.EnableRaisingEvents = true;
+			this.fileSystemWatcher1.SynchronizingObject = this;
 			// 
 			// Form1
 			// 
@@ -178,7 +185,7 @@ namespace Vertical_List_Maker
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.ClientSize = new System.Drawing.Size(388, 252);
-			this.Controls.Add(this.checkBox1);
+			this.Controls.Add(this.RemoveDuplicates);
 			this.Controls.Add(this.inputFIle);
 			this.Controls.Add(this.GenerateList);
 			this.Controls.Add(this.outputFile);
@@ -193,6 +200,7 @@ namespace Vertical_List_Maker
 			this.Text = "Buldron\'s Vertical List Builder";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -214,7 +222,8 @@ namespace Vertical_List_Maker
 		private System.Windows.Forms.ToolStripMenuItem loadWhitelist;
 		private System.Windows.Forms.ToolStripMenuItem loadNewLineTrigger;
 		private System.Windows.Forms.ToolTip toolTip1;
-		private System.Windows.Forms.CheckBox checkBox1;
+		private System.Windows.Forms.CheckBox RemoveDuplicates;
+		private System.IO.FileSystemWatcher fileSystemWatcher1;
 	}
 }
 
