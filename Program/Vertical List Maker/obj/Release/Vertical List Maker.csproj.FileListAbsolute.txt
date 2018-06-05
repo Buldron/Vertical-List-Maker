@@ -7,3 +7,4 @@ D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\
 D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.csproj.CoreCompileInputs.cache
 D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.exe
 D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.pdb
+D:\Clinton\Documents\GitHub\Vertical-List-Maker\Program\Vertical List Maker\obj\Release\Vertical List Maker.csprojAssemblyReference.cache
