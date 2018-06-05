@@ -1,6 +1,3 @@
-- default whitelist loading
-- newline trigger loading
-- minimum and maximum form sizes
 - tooltips
 - popup message when generate file.
 - error messages

@@ -1,4 +1,6 @@
-﻿namespace Vertical_List_Maker
+﻿using System;
+
+namespace Vertical_List_Maker
 {
 	partial class Form1
 	{
@@ -174,13 +176,15 @@
 			this.ForeColor = System.Drawing.Color.White;
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Form1";
-			this.Text = "Form1";
+			this.Text = "Buldron\'s Vertical List Builder";
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
+
+		
 
 		#endregion
 		private System.Windows.Forms.MenuStrip menuStrip1;

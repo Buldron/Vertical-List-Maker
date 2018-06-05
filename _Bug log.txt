@@ -1,3 +1,3 @@
-- unwanted blank lines
-- cannot load default whitelist path - check functions passing "v.Other"
+- unwanted blank lines.
 - don't let user generate without selecting valid input and output files.
+- Throws error when exit menu before selecting path.
