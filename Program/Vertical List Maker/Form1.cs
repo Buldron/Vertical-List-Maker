@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 namespace Vertical_List_Maker
@@ -21,7 +16,7 @@ namespace Vertical_List_Maker
 		string
 			whitelist,
 			newlineTrigger;
-
+		
 
 		public Form1()
 		{
@@ -43,13 +38,24 @@ namespace Vertical_List_Maker
 			FormBorderStyle = FormBorderStyle.FixedSingle;
 			MaximizeBox = false;
 			MinimizeBox = false;
+
+			// Disable generate list button.
+			GenerateList.Enabled = false;
 		}
 
 		private void InputFIle_Click(object sender, EventArgs e)
 		{
 			string[] read = Program.ReadFile("",true);
 			inputPath = read[0];
-			textBox1.Text = inputPath;			
+			textBox1.Text = inputPath;
+
+			// Check if enable build list button
+			GenerateList.Enabled = Program.CanBuildList(inputPath, outputPath, whitelistPath, newlineTriggerPath);
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(this, "Developed by Clinton Hodge / Buldron.", "About.");
 		}
 
 		private void OutputFile_Click(object sender, EventArgs e)
@@ -57,6 +63,9 @@ namespace Vertical_List_Maker
 			string[] read = Program.ReadFile("", true);
 			outputPath = read[0];
 			textBox2.Text = outputPath;
+			
+			// Check if enable build list button
+			GenerateList.Enabled = Program.CanBuildList(inputPath, outputPath, whitelistPath, newlineTriggerPath);
 		}
 
 		private void GenerateList_Click(object sender, EventArgs e)
@@ -64,13 +73,17 @@ namespace Vertical_List_Maker
 			string[] read = Program.ReadFile(inputPath, false);
 			string list = read[1];
 			Program.BuildList(list, outputPath, whitelist, newlineTrigger);
+			MessageBox.Show(this, "Done.", "List Built.");
 		}
 
 		private void LoadWhitelist_Click(object sender, EventArgs e)
 		{
 			string[] read = Program.ReadFile("", true);
 			whitelistPath = read[0];
-			whitelist = read[1];			
+			whitelist = read[1];
+			
+			// Check if enable build list button
+			GenerateList.Enabled = Program.CanBuildList(inputPath, outputPath, whitelistPath, newlineTriggerPath);			
 		}
 
 		private void LoadNewLineTrigger_Click(object sender, EventArgs e)
@@ -78,6 +91,9 @@ namespace Vertical_List_Maker
 			string[] read = Program.ReadFile("", true);
 			newlineTriggerPath = read[0];
 			newlineTrigger = read[1];
+			
+			// Check if enable build list button
+			GenerateList.Enabled = Program.CanBuildList(inputPath, outputPath, whitelistPath, newlineTriggerPath);
 		}
 	}
 }

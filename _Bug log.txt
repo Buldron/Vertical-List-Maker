@@ -1,3 +1,2 @@
-- unwanted blank lines.
-- don't let user generate without selecting valid input and output files.
-- Throws error when exit menu before selecting path.
+- unwanted blank lines (don't make new line if previous line is a space)
+

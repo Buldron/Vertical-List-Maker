@@ -1,5 +1,4 @@
 - tooltips
-- popup message when generate file.
 - error messages
 - error handling
 - save program settings into .txt doc and load when start

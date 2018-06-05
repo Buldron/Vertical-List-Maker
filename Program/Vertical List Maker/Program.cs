@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Vertical_List_Maker
@@ -43,11 +40,14 @@ namespace Vertical_List_Maker
 				}
 			}
 
-			// Write modified list to outputh file.
-			using (StreamWriter writer = new StreamWriter(outputPath))
+			if(outputPath != null && list != null)
 			{
-				writer.Write(list.ToString());
-			}
+				// Write modified list to outputh file.
+				using (StreamWriter writer = new StreamWriter(outputPath))
+				{
+					writer.Write(list.ToString());
+				}
+			}			
 		}
 
 
@@ -71,15 +71,18 @@ namespace Vertical_List_Maker
 
 			// Read and add file contents to string.
 			StringBuilder sb = new StringBuilder();
-			using (StreamReader sr = new StreamReader(_path))
+
+			if (_path != null)
 			{
-				String line;
-				while ((line = sr.ReadLine()) != null)
+				using (StreamReader sr = new StreamReader(_path))
 				{
-					sb.AppendLine(line);
+					String line;
+					while ((line = sr.ReadLine()) != null)
+					{
+						sb.AppendLine(line);
+					}
 				}
 			}
-
 			// Return file path and contents.
 			string[] a = { _path, sb.ToString() };
 			return a;
@@ -93,14 +96,23 @@ namespace Vertical_List_Maker
 				Filter = "TXT|*.txt"
 			};
 
-			// Test result and get file path.
+			// Test result and return file path.
 			DialogResult result = fileDialog.ShowDialog();
 			if (result == DialogResult.OK)
-			{
-				// Return file path.
+			{			
 				return fileDialog.FileName;
 			}
 			return null;
+		}
+
+
+		public static bool CanBuildList(string inputPath, string outputPath, string whitelistPath, string newlineTriggerPath)
+		{
+			if (inputPath != null && outputPath != null && whitelistPath != null && newlineTriggerPath != null)
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 }
